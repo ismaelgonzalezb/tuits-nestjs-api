@@ -10,7 +10,7 @@ import { TuitsModule } from './tuits/tuits.module';
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
-      port: 5432,
+      port: 5439,
       username: 'admin',
       password: 'admin',
       database: 'tuits',

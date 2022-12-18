@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { CreateTuitDtoTs } from './dto';
 import { Tuit } from './entities';
 import { UpdateTuitDto } from './dto/update-tuit.dto';
+import { HttpService } from '@nestjs/axios';
 
 @Injectable()
 export class TuitsService {
@@ -17,9 +18,14 @@ export class TuitsService {
   constructor(
     @InjectRepository(Tuit)
     private readonly tuitsRepository: Repository<Tuit>,
+    private readonly httpService: HttpService,
   ) {}
 
-  getTuits() {
+  async getTuits() {
+    const { data } = await this.httpService.axiosRef.get('https://google.com');
+
+    console.log(data);
+
     return this.tuitsRepository.find();
   }
 

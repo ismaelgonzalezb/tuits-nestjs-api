@@ -4,9 +4,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Tuit } from './entities';
 import { TuitsController } from './tuits.controller';
 import { TuitsService } from './tuits.service';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Tuit])],
+  imports: [HttpModule, TypeOrmModule.forFeature([Tuit])],
   controllers: [TuitsController],
   providers: [TuitsService],
 })
